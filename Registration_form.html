@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	.form-style-3{
+		max-width: 450px;
+		font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	}
+	.form-style-3 label{
+		display:block;
+		margin-bottom: 10px;
+	}
+	.form-style-3 label > span{
+		float: left;
+		width: 100px;
+		color: sky-blue;
+		font-weight: bold;
+		font-size: 13px;
+		text-shadow: 1px 1px 1px #fff;
+	}
+	.form-style-3 fieldset{
+		border-radius: 10px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		margin: 0px 0px 10px 0px;
+		border: 1px solid #0B0101;
+		padding: 20px;
+		background: grey;
+		box-shadow: inset 0px 0px 15px #FFE5E5;
+		-moz-box-shadow: inset 0px 0px 15px #FFE5E5;
+		-webkit-box-shadow: inset 0px 0px 15px #FFE5E5;
+	}
+	.form-style-3 fieldset legend{
+		color: #FFFFFF;
+		border-top: 2px solid #6833FF;
+		border-left: 2px solid #6833FF;
+		border-right: 2px solid #6833FF;
+		border-radius: 5px 5px 0px 0px;
+		-webkit-border-radius: 5px 5px 0px 0px;
+		-moz-border-radius: 5px 5px 0px 0px;
+		background: #000000;
+		padding: 0px 8px 3px 8px;
+		box-shadow: -0px -1px 2px #F1F1F1;
+		-moz-box-shadow:-0px -1px 2px #F1F1F1;
+		-webkit-box-shadow:-0px -1px 2px #F1F1F1;
+		font-weight: normal;
+		font-size: 12px;
+	}
+	.form-style-3 textarea{
+		width:250px;
+		height:100px;
+	}
+	.form-style-3 input[type=text],
+	.form-style-3 input[type=password],
+	.form-style-3 input[type=email],
+	.form-style-3 select, 
+	.form-style-3 textarea{
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border: 1px solid #FFC2DC;
+		outline: none;
+		color: black;
+		padding: 5px 8px 5px 8px;
+		box-shadow: inset 1px 1px 4px #FFD5E7;
+		-moz-box-shadow: inset 1px 1px 4px #FFD5E7;
+		-webkit-box-shadow: inset 1px 1px 4px #FFD5E7;
+		background: white;
+		width:50%;
+	}
+	.form-style-3  input[type=submit],
+	.form-style-3  input[type=button]{
+		background: skyblue;
+		border: 1px solid #C94A81;
+		padding: 5px 15px 5px 15px;
+		color: black;
+		box-shadow: inset -1px -1px 3px #FF62A7;
+		-moz-box-shadow: inset -1px -1px 3px #FF62A7;
+		-webkit-box-shadow: inset -1px -1px 3px #FF62A7;
+		border-radius: 3px;
+		border-radius: 3px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;	
+		font-weight: bold;
+	}
+	.required{
+		color:red;
+		font-weight:normal;
+	}
+	</style>
+</head>
+<body> 
+	<script>  
+	function validateform()
+	{  
+	var name1=document.register_form.field1.value;
+                  var name2=document.register_form.field2.value;  
+	var pattern = /^[A-Za-z]*$/;
+	if(!pattern.test(name1) || !pattern.test(name2))
+	{
+	alert("Please enter valid Name");
+	return false;
+	}
+	else if (name1=="" || name2=="")
+	{  
+	  alert("Please fill Name field");  
+	  return false;  
+	} 
+	var phn=document.register_form.field3.value;
+	if(isNaN(phn)){
+		alert("Please fill Phone number field");
+		return false; } 
+	else if(phn.length!=10)
+	{  
+	  alert("Please enter valid Phone number");  
+	  return false;  
+	}
+	var em=document.register_form.field4.value;
+	if (em==null || em=="")
+	{  
+	  alert("Please fill Email field");  
+	  return false;  
+	} 
+	var r=document.register_form.field5.value;
+	var pattern2=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+	if (r==null || r=="")
+	{  
+	  alert("Enter password field");  
+	  return false;  
+	}
+	if(!pattern2.test(r))
+	{
+	  alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters");  
+	  return false; 
+	}
+	
+	}  
+	</script> 
+	<div class="form-style-3" style="max-width:500px;margin:auto;">
+	
+	<form name="register_form" method="post" action="#"onsubmit="return validateform()" >
+	<fieldset><legend>Student Registration</legend>
+	<label for="field1"><span>First Name <span class="required">*</span></span><input type="text" class="input-field" name="field1" value="" /></label>
+	<label for="field2"><span>Last Name<span class="required">*</span></span><input type="text" class="input-field" name="field2" value="" /></label>
+	<label for="field3"><span>Mobile Number<span class="required">*</span></span><input type="text" class="input-field" name="field3" value="" /></label></br>	
+	<label for="field4"><span>Email Address<span class="required">*</span></span><input type="email" class="input-field" name="field4" value="" /></label>
+	<label for="field5"><span>Password<span class="required">*</span></span><input type="password" class="input-field" name="field5" value="" /></label>
+	<label><center><span> </span><input type="submit" value="Submit" /></center></label>
+	</form>
+	</div>
+</body>
+</html>
